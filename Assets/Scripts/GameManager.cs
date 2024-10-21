@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     private CurrencyService currencyService;
     private EventService eventService;
+    private ItemManagementSystemService itemManagementSystemService;
+
     [SerializeField] private UIService uiService;
 
     [SerializeField] private WalletConfigSO walletConfigSO;
@@ -14,14 +16,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ShopView shopViewPrefab;
     [SerializeField] private ItemSlotView itemSlotViewPrefab;
 
+    [SerializeField] private InventorySO inventorySO;
+    [SerializeField] private InventoryView inventoryViewPrefab;
+
     private WalletController walletController;
     private QAToolController qaToolController;
     private ShopController shopController;
+    private InventoryController inventoryController;
 
     private void Awake()
     {
         currencyService = new CurrencyService();
         eventService = new EventService();
+        itemManagementSystemService = new ItemManagementSystemService();
 
         InitializeServices();
         InstantiateUI();
@@ -31,6 +38,7 @@ public class GameManager : MonoBehaviour
     {
         eventService.Init();
         currencyService.Init(eventService);
+        itemManagementSystemService.Init(currencyService, uiService);
     }
 
     private void InstantiateUI()
@@ -41,6 +49,12 @@ public class GameManager : MonoBehaviour
         qaToolController = new QAToolController(qaToolView, uiService, currencyService);
 
         ShopModel shopModel = new ShopModel(shopSO, itemSlotViewPrefab);
-        shopController = new ShopController(shopViewPrefab, shopModel, uiService, eventService);
+        shopController = new ShopController(shopViewPrefab, shopModel, uiService, eventService, itemManagementSystemService);
+
+        InventoryModel inventoryModel = new InventoryModel(inventorySO);
+        inventoryController = new InventoryController(eventService, uiService, inventoryModel, inventoryViewPrefab, itemManagementSystemService);
+        
+        itemManagementSystemService.SetControllers(shopController, inventoryController);
+    
     }
 }

@@ -7,7 +7,10 @@ public class ItemSlotController
 
     private EventService eventService;
 
-    public ItemSlotController(ItemSlotView viewPrefab, ItemSlotModel itemSlotModel, Transform root, EventService eventService)
+    private bool isUnderShop;
+
+    public ItemSlotController(ItemSlotView viewPrefab, ItemSlotModel itemSlotModel, 
+        Transform root, EventService eventService, bool isUnderShop)
     {
         this.eventService = eventService;
 
@@ -20,11 +23,19 @@ public class ItemSlotController
         view.SetIcon(model.InventoryItem.Item.Icon);
         view.SetAmount(model.InventoryItem.Amount);
         view.SetWeight(model.InventoryItem.Item.Weight);
+        this.isUnderShop = isUnderShop;
     }
 
     public void SelectItem()
     {
-        eventService.OnItemSlotClicked.InvokeEvent(this);
+        if (this.isUnderShop)
+        {
+            eventService.OnItemSlotClickedOnShop.InvokeEvent(this);
+        }
+        else
+        {
+            eventService.OnItemSlotClickedOnInventory.InvokeEvent(this);
+        }
     }
 
     public Item GetItem()
@@ -42,16 +53,16 @@ public class ItemSlotController
         view.gameObject.SetActive(state);
     }
 
-    public void AddItem(int amount)
+    public void ItemAdded()
     {
-        model.InventoryItem.Amount += amount;
+        view.SetAmount(model.InventoryItem.Amount);
     }
 
-    public void RemoveItem(int amount)
+    public void ItemRemoved()
     {
-        model.InventoryItem.Amount -= amount;
+        view.SetAmount(model.InventoryItem.Amount);
 
-        if(model.InventoryItem.Amount <= 0)
+        if (model.InventoryItem.Amount <= 0)
         {
             GameObject.Destroy(view.gameObject);
         }

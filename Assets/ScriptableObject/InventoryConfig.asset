@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822eb6fb2a7c8f749b2a9aef6a579e6a, type: 3}
+  m_Name: InventoryConfig
+  m_EditorClassIdentifier: 
+  Items:
+  - ItemSO: {fileID: 11400000, guid: 0605afcb223a411468b45140a2c9797b, type: 2}
+    Amount: 3
+  - ItemSO: {fileID: 11400000, guid: ed7bdf490ffc02f4cb757adc9554dee8, type: 2}
+    Amount: 2
+  - ItemSO: {fileID: 11400000, guid: 87e499738c8dd284bbb4d9269f93df99, type: 2}
+    Amount: 60
+  - ItemSO: {fileID: 11400000, guid: 89c148cae13212b45a8c129917649dbf, type: 2}
+    Amount: 1
+  MaxWeight: 100
+  SlotViewPrefab: {fileID: 5372258812233094802, guid: a89709d19e3a09d499fb8a2779bdb6b4,
+    type: 3}
