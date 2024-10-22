@@ -1,6 +1,3 @@
-using System.Xml;
-using static UnityEditor.Progress;
-
 public class ShopModel : CategoryInventoryModel
 {
     public ShopModel(ShopSO shopSO, ItemSlotView prefab)

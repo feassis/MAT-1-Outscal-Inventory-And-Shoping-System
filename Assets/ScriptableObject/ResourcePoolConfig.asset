@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a947702081b50b4897fbee008c287d6, type: 3}
+  m_Name: ResourcePoolConfig
+  m_EditorClassIdentifier: 
+  resourceOdds:
+  - MinGoldRequirement: 0
+    resourcePool:
+    - Item: {fileID: 11400000, guid: 87e499738c8dd284bbb4d9269f93df99, type: 2}
+      Weight: 50
+    - Item: {fileID: 11400000, guid: 28354047c59ee27498467f788e4b6efb, type: 2}
+      Weight: 10
+    - Item: {fileID: 11400000, guid: 9b6f227e993c0bf46a0df8e874372292, type: 2}
+      Weight: 40
+  - MinGoldRequirement: 300
+    resourcePool:
+    - Item: {fileID: 11400000, guid: 87e499738c8dd284bbb4d9269f93df99, type: 2}
+      Weight: 20
+    - Item: {fileID: 11400000, guid: 28354047c59ee27498467f788e4b6efb, type: 2}
+      Weight: 20
+    - Item: {fileID: 11400000, guid: 9b6f227e993c0bf46a0df8e874372292, type: 2}
+      Weight: 20
+    - Item: {fileID: 11400000, guid: ed7bdf490ffc02f4cb757adc9554dee8, type: 2}
+      Weight: 30
+    - Item: {fileID: 11400000, guid: bbafbd70d2ad81249888ae665ec1ceb7, type: 2}
+      Weight: 10
+  - MinGoldRequirement: 1000
+    resourcePool:
+    - Item: {fileID: 11400000, guid: 89c148cae13212b45a8c129917649dbf, type: 2}
+      Weight: 10
+    - Item: {fileID: 11400000, guid: 28354047c59ee27498467f788e4b6efb, type: 2}
+      Weight: 20
+    - Item: {fileID: 11400000, guid: 1d7a6b552eac1ea48baa201baecbba9b, type: 2}
+      Weight: 10
+    - Item: {fileID: 11400000, guid: ed7bdf490ffc02f4cb757adc9554dee8, type: 2}
+      Weight: 40
+    - Item: {fileID: 11400000, guid: bbafbd70d2ad81249888ae665ec1ceb7, type: 2}
+      Weight: 20
+  - MinGoldRequirement: 2000
+    resourcePool:
+    - Item: {fileID: 11400000, guid: 89c148cae13212b45a8c129917649dbf, type: 2}
+      Weight: 20
+    - Item: {fileID: 11400000, guid: b38f2dac5ac0b5c40842d4fa5651a723, type: 2}
+      Weight: 20
+    - Item: {fileID: 11400000, guid: 1d7a6b552eac1ea48baa201baecbba9b, type: 2}
+      Weight: 25
+    - Item: {fileID: 11400000, guid: ed7bdf490ffc02f4cb757adc9554dee8, type: 2}
+      Weight: 10
+    - Item: {fileID: 11400000, guid: bbafbd70d2ad81249888ae665ec1ceb7, type: 2}
+      Weight: 25
+  - MinGoldRequirement: 5000
+    resourcePool:
+    - Item: {fileID: 11400000, guid: 89c148cae13212b45a8c129917649dbf, type: 2}
+      Weight: 30
+    - Item: {fileID: 11400000, guid: b38f2dac5ac0b5c40842d4fa5651a723, type: 2}
+      Weight: 30
+    - Item: {fileID: 11400000, guid: 1d7a6b552eac1ea48baa201baecbba9b, type: 2}
+      Weight: 25
+    - Item: {fileID: 11400000, guid: d5c8fb027bf85094b8fe9a274a46acdd, type: 2}
+      Weight: 5
+    - Item: {fileID: 11400000, guid: 0605afcb223a411468b45140a2c9797b, type: 2}
+      Weight: 10

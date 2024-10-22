@@ -21,3 +21,15 @@ MonoBehaviour:
     Amount: 3
   - ItemSO: {fileID: 11400000, guid: 0605afcb223a411468b45140a2c9797b, type: 2}
     Amount: 10
+  - ItemSO: {fileID: 11400000, guid: 28354047c59ee27498467f788e4b6efb, type: 2}
+    Amount: 50
+  - ItemSO: {fileID: 11400000, guid: 9b6f227e993c0bf46a0df8e874372292, type: 2}
+    Amount: 15
+  - ItemSO: {fileID: 11400000, guid: bbafbd70d2ad81249888ae665ec1ceb7, type: 2}
+    Amount: 5
+  - ItemSO: {fileID: 11400000, guid: 1d7a6b552eac1ea48baa201baecbba9b, type: 2}
+    Amount: 25
+  - ItemSO: {fileID: 11400000, guid: b38f2dac5ac0b5c40842d4fa5651a723, type: 2}
+    Amount: 4
+  - ItemSO: {fileID: 11400000, guid: d5c8fb027bf85094b8fe9a274a46acdd, type: 2}
+    Amount: 1

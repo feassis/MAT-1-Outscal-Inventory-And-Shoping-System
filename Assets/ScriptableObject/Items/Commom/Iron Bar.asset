@@ -9,10 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 822eb6fb2a7c8f749b2a9aef6a579e6a, type: 3}
-  m_Name: InventoryConfig
+  m_Script: {fileID: 11500000, guid: 7e0e425295bf08945841d16fafc9847e, type: 3}
+  m_Name: Iron Bar
   m_EditorClassIdentifier: 
-  Items: []
-  MaxWeight: 100
-  SlotViewPrefab: {fileID: 5372258812233094802, guid: a89709d19e3a09d499fb8a2779bdb6b4,
-    type: 3}
+  Type: 1
+  Rarity: 1
+  Icon: {fileID: 21300000, guid: b2352df64abcd62489bcc3094ec726e7, type: 3}
+  Name: Iron Bar
+  Description: A bar made of iron
+  BuyingPrice: 50
+  SellingPrice: 20
+  Weight: 1

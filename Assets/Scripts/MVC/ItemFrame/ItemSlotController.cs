@@ -53,14 +53,16 @@ public class ItemSlotController
         view.gameObject.SetActive(state);
     }
 
-    public void ItemAdded()
+    public void ItemAdded(int amount)
     {
-        view.SetAmount(model.InventoryItem.Amount);
+        model.InventoryItem.Amount = amount;
+        view.SetAmount(amount);
     }
 
-    public void ItemRemoved()
+    public void ItemRemoved(int amount)
     {
-        view.SetAmount(model.InventoryItem.Amount);
+        model.InventoryItem.Amount = amount;
+        view.SetAmount(amount);
 
         if (model.InventoryItem.Amount <= 0)
         {

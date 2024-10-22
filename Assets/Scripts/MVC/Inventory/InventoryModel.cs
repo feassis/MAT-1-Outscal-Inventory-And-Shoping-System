@@ -5,6 +5,8 @@ public class InventoryModel : CategoryInventoryModel
     public float CurrentWeight { get; private set; }
     public float MaxWeight { get; private set; }
 
+    public int CurrentValue { get; private set; }
+
     private InventoryController controller;
 
     public InventoryModel(InventorySO inventorySO)
@@ -18,6 +20,7 @@ public class InventoryModel : CategoryInventoryModel
         this.MaxWeight = inventorySO.MaxWeight;
 
         CalculateCurrentWeight();
+        CalculateInventoryValue();
     }
 
     public void CalculateCurrentWeight()
@@ -30,6 +33,18 @@ public class InventoryModel : CategoryInventoryModel
         }
 
         CurrentWeight = weight;
+    }
+
+    public void CalculateInventoryValue()
+    {
+        int currentValue = 0;
+
+        foreach (var item in Items)
+        {
+            currentValue += item.Amount * item.Item.SellingPrice;
+        }
+
+        CurrentValue = currentValue;
     }
 
     public void SetController(InventoryController controller)

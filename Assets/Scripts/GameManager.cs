@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private InventorySO inventorySO;
     [SerializeField] private InventoryView inventoryViewPrefab;
+    [SerializeField] private ResourceGatherConfig resourceSO;
 
     private WalletController walletController;
     private QAToolController qaToolController;
@@ -38,7 +39,8 @@ public class GameManager : MonoBehaviour
     {
         eventService.Init();
         currencyService.Init(eventService);
-        itemManagementSystemService.Init(currencyService, uiService);
+        itemManagementSystemService.Init(currencyService, uiService, resourceSO, eventService);
+        uiService.Init(eventService);
     }
 
     private void InstantiateUI()

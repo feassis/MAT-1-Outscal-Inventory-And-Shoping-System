@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemManagementSystemService
@@ -8,11 +6,46 @@ public class ItemManagementSystemService
     private InventoryController inventoryController;
     private CurrencyService currencyService;
     private UIService uiService;
+    private ResourceGatherConfig resourceGatherConfig;
+    private EventService eventService;
 
-    public void Init(CurrencyService currencyService, UIService uiService)
+    public void Init(CurrencyService currencyService, UIService uiService, 
+        ResourceGatherConfig resourceGatherConfig, EventService eventService)
     {
         this.currencyService = currencyService;
         this.uiService = uiService;
+        this.resourceGatherConfig = resourceGatherConfig;
+        this.eventService = eventService;
+
+        eventService.OnResourceGather.AddListener(OnResourceGathered);
+    }
+
+    ~ItemManagementSystemService()
+    {
+        eventService.OnResourceGather.RemoveListener(OnResourceGathered);
+    }
+
+    private void OnResourceGathered()
+    {
+        var resorucePool = resourceGatherConfig.GetDecrescentOrderedResourcesOdds();
+        var currentInventoryValue = inventoryController.GetInventoryValue();
+
+        foreach (var res in resorucePool)
+        {
+            if(currentInventoryValue >= res.MinGoldRequirement)
+            {
+                var sortedEntry = res.GetRandomEntryBasedOnWeight();
+
+                if(inventoryController.GetRemainingWeight() < sortedEntry.Item.Weight)
+                {
+                    uiService.OpenGenericPopup($"Sorry! You found {sortedEntry.Item.Name}, but you are carrying too much, try sell some stuff.");
+                    return;
+                }
+
+                AddItemToInventory(new Item(sortedEntry.Item), 1);
+                return;
+            }
+        }
     }
 
     public void SetControllers(ShopController shopController, InventoryController inventoryController)

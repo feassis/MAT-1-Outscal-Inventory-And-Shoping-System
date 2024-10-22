@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class ShopController : CategoryInventoryController
 {

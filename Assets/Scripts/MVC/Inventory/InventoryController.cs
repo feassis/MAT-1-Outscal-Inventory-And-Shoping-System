@@ -18,6 +18,7 @@ public class InventoryController : CategoryInventoryController
         GetView().SetController(this);
         SetupInventory();
         GetView().UpdateInventoryWeightText(GetModel().CurrentWeight, GetModel().MaxWeight);
+        GetView().UpdateValueText(GetModel().CurrentValue);
 
         UpdateDetailsPanel();
     }
@@ -75,19 +76,25 @@ public class InventoryController : CategoryInventoryController
         view.SetupDescriptionPanel(item.Icon, item.Name, item.Description, item.Weight * chosenAmount, chosenAmount, item.SellingPrice * chosenAmount, inventoryItem.Amount);
     }
 
+    public int GetInventoryValue() => GetModel().CurrentValue;
+
     public override void AddItem(Item item, int amount, bool isShop)
     {
         base.AddItem(item, amount, isShop);
 
         GetModel().CalculateCurrentWeight();
+        GetModel().CalculateInventoryValue();
         GetView().UpdateInventoryWeightText(GetModel().CurrentWeight, GetModel().MaxWeight);
+        GetView().UpdateValueText(GetModel().CurrentValue);
     }
 
     public override void RemoveItem(Item item, int amount)
     {
         base.RemoveItem(item, amount);
         GetModel().CalculateCurrentWeight();
+        GetModel().CalculateInventoryValue();
         GetView().UpdateInventoryWeightText(GetModel().CurrentWeight, GetModel().MaxWeight);
+        GetView().UpdateValueText(GetModel().CurrentValue);
     }
 
     public void TrySellSelectedItem()

@@ -81,8 +81,6 @@ public abstract class CategoryInventoryController
                     itemSlotControler = treasureSlotItems.Find(i => i.GetItem().Name.Equals(item.Name));
                     break;
             }
-
-            itemSlotControler.ItemAdded();
         }
         else
         {
@@ -107,6 +105,11 @@ public abstract class CategoryInventoryController
             }
         }
         model.AddItem(item, amount);
+
+        itemSlotControler.ItemAdded(model.GetInventoryItem(item).Amount);
+
+        selectedSlot = null;
+
         UpdateDetailsPanel();
     }
 
@@ -117,13 +120,29 @@ public abstract class CategoryInventoryController
         if (model.HasItem(item))
         {
             model.RemoveItem(item, amount);
+
+            var itemSlot = model.GetInventoryItem(item);
+
+            int remainingAmount = 0;
+
+            if (itemSlot != null)
+            {
+                remainingAmount = itemSlot.Amount;  
+            }
+            else
+            {
+                remainingAmount = 0;
+            }
+
+            
+
             switch (item.Type)
             {
                 case ItemType.None:
                     break;
                 case ItemType.Materials:
                     itemSlotControler = materialSlotItems.Find(i => i.GetItem().Name.Equals(item.Name));
-                    itemSlotControler.ItemRemoved();
+                    itemSlotControler.ItemRemoved(remainingAmount);
 
                     if (itemSlotControler.GetItemAmout() <= 0)
                     {
@@ -132,7 +151,7 @@ public abstract class CategoryInventoryController
                     break;
                 case ItemType.Equipment:
                     itemSlotControler = equipmentSlotItems.Find(i => i.GetItem().Name.Equals(item.Name));
-                    itemSlotControler.ItemRemoved();
+                    itemSlotControler.ItemRemoved(remainingAmount);
 
                     if (itemSlotControler.GetItemAmout() <= 0)
                     {
@@ -141,7 +160,7 @@ public abstract class CategoryInventoryController
                     break;
                 case ItemType.Consumables:
                     itemSlotControler = consumableSlotItems.Find(i => i.GetItem().Name.Equals(item.Name));
-                    itemSlotControler.ItemRemoved();
+                    itemSlotControler.ItemRemoved(remainingAmount);
 
                     if (itemSlotControler.GetItemAmout() <= 0)
                     {
@@ -150,7 +169,7 @@ public abstract class CategoryInventoryController
                     break;
                 case ItemType.Treasure:
                     itemSlotControler = treasureSlotItems.Find(i => i.GetItem().Name.Equals(item.Name));
-                    itemSlotControler.ItemRemoved();
+                    itemSlotControler.ItemRemoved(remainingAmount);
 
                     if (itemSlotControler.GetItemAmout() <= 0)
                     {

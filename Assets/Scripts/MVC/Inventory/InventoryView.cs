@@ -9,6 +9,9 @@ public class InventoryView : CategoryInventoryView
     [SerializeField] protected TextMeshProUGUI currentWeightText;
     [SerializeField] protected TextMeshProUGUI maxWeightText;
 
+    [Header("Value Text")]
+    [SerializeField] protected TextMeshProUGUI currentValueText;
+
     [Header("Sounds")]
     [SerializeField] protected AudioSource coinAudioSource;
 
@@ -25,6 +28,11 @@ public class InventoryView : CategoryInventoryView
     {
         currentWeightText.text = currentWeight.ToString();
         maxWeightText.text = $"{maxWeight} KG";
+    }
+
+    public void UpdateValueText(int currentValue)
+    {
+        currentValueText.text = $"{currentValue} GOLD";
     }
 
     private void OnSellButtomClicked()
