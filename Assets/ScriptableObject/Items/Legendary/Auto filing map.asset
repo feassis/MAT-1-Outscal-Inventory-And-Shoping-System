@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0e425295bf08945841d16fafc9847e, type: 3}
+  m_Name: Auto filing map
+  m_EditorClassIdentifier: 
+  Type: 4
+  Rarity: 5
+  Icon: {fileID: -790166292093661964, guid: b77342e1883ccd94983f6bd49ddd47a5, type: 3}
+  Name: Auto filing map
+  Description: a magic globe that updates itself
+  BuyingPrice: 5000
+  SellingPrice: 2500
+  Weight: 5
